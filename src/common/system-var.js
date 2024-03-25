@@ -1,2 +1,2 @@
 // Служебные переменные
-export const API_URL = import.meta.env.API_URL;
+export const API_URL = 'http://79.174.95.200/';
