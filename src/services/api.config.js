@@ -38,7 +38,7 @@ instance.interceptors.response.use(
     ) {
       try {
         const tokenRefresh = JSON.parse(localStorage.getItem('refresh_token'));
-        const newToken = await AuthService.updateAccessToken(tokenRefresh);
+        await AuthService.updateAccessToken(tokenRefresh);
         return instance.request(originalRequest);
       } catch (error) {
         console.log("AUTH ERROR")

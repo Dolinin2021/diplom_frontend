@@ -6,4 +6,4 @@ export default function parseJwt(token) {
   } catch (e) {
     return null;
   }
-};
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import UserService from '../services/user.service';
 import buttonClick from '../functions/buttonClick';
