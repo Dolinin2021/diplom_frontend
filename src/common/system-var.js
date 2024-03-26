@@ -1,2 +1,2 @@
 // Служебные переменные
-export const API_URL = 'http://79.174.91.160/backend/';
+export const API_URL = process.env.BACKEND_URL;
