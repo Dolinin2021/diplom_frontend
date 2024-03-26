@@ -76,7 +76,7 @@ export default function FileList() {
             <tr key={item.id}>
               <td><span className="list-group-item">{item.title}</span></td>
               <td><span className="list-group-item" >{bytesToSize(item.file_size)}</span></td>
-              <td><span className="list-group-item" ><a href={parseStr(`${item.file}`)}>{parseStr(`${item.file}`)}</a></span></td>
+              <td><span className="list-group-item" ><a href={parseStr(item.file)}>{parseStr(item.file)}</a></span></td>
               <td><span className="list-group-item" >{item.comment}</span></td>
               <td><span className="list-group-item" >{item.date}</span></td>
               <td><span className="list-group-item" >{<NavLink to={'/file/detail' + `/${item.id}`}> Перейти</NavLink>}</span></td>
