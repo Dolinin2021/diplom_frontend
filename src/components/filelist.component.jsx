@@ -30,24 +30,40 @@ export default function FileList() {
   function onCLickAdmin() {
     navigate(`/filelist/new/${adminUserId}`);
   }
-
-  if (adminUserId) {
-    useEffect(() => {
+  
+  useEffect(() => {
+    if (adminUserId) {
       UserService.getFileListCurrentUser(adminUserId).then((data) => {
         setInfo(data);
       }).catch((error) => {
         console.log(error.message);
       })
-    }, []);
-  } else {
-    useEffect(() => {
+    } else {
       UserService.getFileList().then((data) => {
         setInfo(data);
       }).catch((error) => {
         console.log(error.message);
       })
-    }, []);
-  }
+    }
+  },[]);
+
+  // if (adminUserId) {
+  //   useEffect(() => {
+  //     UserService.getFileListCurrentUser(adminUserId).then((data) => {
+  //       setInfo(data);
+  //     }).catch((error) => {
+  //       console.log(error.message);
+  //     })
+  //   }, []);
+  // } else {
+  //   useEffect(() => {
+  //     UserService.getFileList().then((data) => {
+  //       setInfo(data);
+  //     }).catch((error) => {
+  //       console.log(error.message);
+  //     })
+  //   }, []);
+  // }
 
   return (
     <div className='container'>

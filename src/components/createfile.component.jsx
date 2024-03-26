@@ -4,7 +4,7 @@ import axios from "axios";
 import authHeader from "../services/auth-header";
 import { useParams } from 'react-router-dom';
 import userIdentifer from '../functions/userIdentifer';
-import {API_URL} from '../common/system-var';
+import { API_URL } from '../common/system-var';
 
 
 // Страница "Добавление файла"
