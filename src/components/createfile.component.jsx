@@ -33,7 +33,7 @@ export default function CreateFile () {
     formData.append('file', file);
     formData.append('user', userId);
     formData.append('comment', comment);
-    axios.post(`${API_URL}api/v1/filelist/`, formData, {
+    axios.post(`${API_URL}backend/api/v1/filelist/`, formData, {
       onUploadProgress: (ProgressEvent) => {
         let progress = Math.round(
           ProgressEvent.loaded / ProgressEvent.total * 100

@@ -7,7 +7,7 @@ export default function Home() {
     <div className='container'>
       <header className='jumbotron'>
         <h3>
-          <strong>Главная страница приложения</strong>
+          <strong>Главная страница</strong>
         </h3>
       </header>
       <p>
