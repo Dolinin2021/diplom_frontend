@@ -49,7 +49,7 @@ export default function FileList() {
 
   return (
     <div className='container'>
-      <div className="tbl-header">
+      <div>
         <h3>
           <strong>Файловое хранилище</strong>
         </h3>
@@ -65,21 +65,17 @@ export default function FileList() {
               <th>Удалить</th>
             </tr>
           </thead>
-        </table>
-      </div>
-      <div className="tbl-content">
-        <table>
           <tbody>
-          {info.map((item) => 
-            <tr key={item.id}>
-              <td><span className="list-group-item">{item.title}</span></td>
-              <td><span className="list-group-item" >{bytesToSize(item.file_size)}</span></td>
-              <td><span className="list-group-item" ><a href={parseStr(item.file)}>{parseStr(item.file)}</a></span></td>
-              <td><span className="list-group-item" >{item.comment}</span></td>
-              <td><span className="list-group-item" >{item.date}</span></td>
-              <td><span className="list-group-item" >{<NavLink to={'/file/detail' + `/${item.id}`}> Перейти</NavLink>}</span></td>
-              <td><span className="list-group-item" >{<button type="button" onClick={(event) => {handleDeleteClick(event, item.id)}}>Удалить</button>}</span></td>
-            </tr>)}
+            {info.map((item) => 
+              <tr key={item.id}>
+                <td><span className="list-group-item">{item.title}</span></td>
+                <td><span className="list-group-item" >{bytesToSize(item.file_size)}</span></td>
+                <td><span className="list-group-item" ><a href={parseStr(item.file)}>{parseStr(item.file)}</a></span></td>
+                <td><span className="list-group-item" >{item.comment}</span></td>
+                <td><span className="list-group-item" >{item.date}</span></td>
+                <td><span className="list-group-item" >{<NavLink to={'/file/detail' + `/${item.id}`}> Перейти</NavLink>}</span></td>
+                <td><span className="list-group-item" >{<button type="button" onClick={(event) => {handleDeleteClick(event, item.id)}}>Удалить</button>}</span></td>
+              </tr>)}
           </tbody>
         </table>
       </div>

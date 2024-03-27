@@ -42,7 +42,7 @@ export default function UserList() {
 
   return (
     <div className='container'>
-      <div className="tbl-header">
+      <div>
         <h3>
           <strong>Административный интерфейс системы</strong>
         </h3>
@@ -56,27 +56,23 @@ export default function UserList() {
               <th>Удалить</th>
             </tr>
           </thead>
-        </table>
-      </div>
-      <div className="tbl-content">
-        <table>
           <tbody>
-          {info.map((item) => 
-            <tr key={item.id}>
-              <td><span className="list-group-item" >{<NavLink to={'/userlist/detail' + `/${item.id}`}>{item.username}</NavLink>}</span></td>
-              <td><span className="list-group-item">{item.email}</span></td>
-              <td>
-                <span className="list-group-item" >
-                  <button type="button" 
-                    style={{cursor: "pointer"}} 
-                    onClick={() => { changeUserRoleClick(item.id, item.is_superuser) }}>
-                      {item.is_superuser ? "Администратор" : "Пользователь"}
-                  </button>
-                </span>
-              </td>
-              <td><span className="list-group-item" >{<NavLink to={'/filelist/detail' + `/${item.id}`}>Перейти</NavLink>}</span></td>
-              <td><span className="list-group-item" >{<button type="button" onClick={(event) => {handleDeleteClick(event, item.id)}}>Удалить</button>}</span></td>
-            </tr>)}
+            {info.map((item) => 
+              <tr key={item.id}>
+                <td><span className="list-group-item" >{<NavLink to={'/userlist/detail' + `/${item.id}`}>{item.username}</NavLink>}</span></td>
+                <td><span className="list-group-item">{item.email}</span></td>
+                <td>
+                  <span className="list-group-item" >
+                    <button type="button" 
+                      style={{cursor: "pointer"}} 
+                      onClick={() => { changeUserRoleClick(item.id, item.is_superuser) }}>
+                        {item.is_superuser ? "Администратор" : "Пользователь"}
+                    </button>
+                  </span>
+                </td>
+                <td><span className="list-group-item" >{<NavLink to={'/filelist/detail' + `/${item.id}`}>Перейти</NavLink>}</span></td>
+                <td><span className="list-group-item" >{<button type="button" onClick={(event) => {handleDeleteClick(event, item.id)}}>Удалить</button>}</span></td>
+              </tr>)}
           </tbody>
         </table>
       </div>

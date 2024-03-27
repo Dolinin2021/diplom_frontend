@@ -1,3 +1,5 @@
+// Функция-генератор общей ссылки
+
 export default function parseStr(address) {
     let str = '';
     let arr = address.split('/');
