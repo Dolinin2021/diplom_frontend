@@ -1,2 +1,5 @@
 // Служебные переменные
-export const API_URL = process.env.SERVER_URL;
+import parseURL from "../functions/parseURL";
+
+const result = parseURL(process.env.SERVER_URL);
+export const API_URL = result;
