@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
@@ -12,6 +13,11 @@ import withRouter from '../common/with-router';
 // Страница регистрации
 
 class Register extends Component {
+  static propTypes = {
+    router: PropTypes.obj,
+    navigate: PropTypes.func,
+  };
+
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
@@ -170,5 +176,10 @@ class Register extends Component {
     );
   }
 }
+
+Register.propTypes = {
+  router: PropTypes.obj,
+  navigate: PropTypes.func,
+};
 
 export default withRouter(Register);

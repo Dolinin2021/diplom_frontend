@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
@@ -142,5 +143,10 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  router: PropTypes.obj,
+  navigate: PropTypes.func,
+};
 
 export default withRouter(Login);
