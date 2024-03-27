@@ -7,7 +7,7 @@ import { API_URL } from '../common/system-var';
 class UserService {
   async getUserList() {
     const response = await instance
-      .get(API_URL + 'backend/userlist/', { 
+      .get(API_URL + 'userlist/', { 
         headers: authHeader() 
       });
     return response.data.allUsers;
@@ -15,7 +15,7 @@ class UserService {
 
   async getCurrentUser(user_id) {
     const response = await instance
-      .get(API_URL + `backend/userlist/${user_id}/`, { 
+      .get(API_URL + `userlist/${user_id}/`, { 
         headers: authHeader() 
       });
     if (response.status === 401) {
@@ -26,7 +26,7 @@ class UserService {
 
   async delCurrentUser(user_id) {
     const response = await instance
-      .delete(API_URL + `backend/user/change/${user_id}/`, { 
+      .delete(API_URL + `user/change/${user_id}/`, { 
         headers: authHeader() 
       });
     return response;
@@ -34,7 +34,7 @@ class UserService {
 
   async changeUserRole(user_id, user_role) {
     const response = await instance
-      .put(API_URL + `backend/user/change/${user_id}/`,
+      .put(API_URL + `user/change/${user_id}/`,
       { 
         "is_superuser": !user_role 
       }, 
@@ -46,7 +46,7 @@ class UserService {
 
   async getFileList() {
     const response = await instance
-      .get(API_URL + 'backend/api/v1/filelist/', { 
+      .get(API_URL + 'api/v1/filelist/', { 
         headers: authHeader() 
       });
     return response.data;
@@ -54,7 +54,7 @@ class UserService {
 
   async getFileListCurrentUser(user_id) {
     const response = await instance
-      .get(API_URL + `backend/api/v1/filelist/${user_id}/`, { 
+      .get(API_URL + `api/v1/filelist/${user_id}/`, { 
         headers: authHeader() 
       });
     return response.data;
@@ -62,7 +62,7 @@ class UserService {
 
   async getCurrentFile(file_id) {
     const response = await instance
-      .get(API_URL + `backend/api/v1/filelist/detail/${file_id}/`, { 
+      .get(API_URL + `api/v1/filelist/detail/${file_id}/`, { 
         headers: authHeader() 
       });
     return response.data;
@@ -70,7 +70,7 @@ class UserService {
 
   async delCurrentFile(file_id) {
     const response = await instance
-      .delete(API_URL + `backend/api/v1/filelist/detail/${file_id}/`, { 
+      .delete(API_URL + `api/v1/filelist/detail/${file_id}/`, { 
         headers: authHeader() 
       });
     return response;
@@ -78,7 +78,7 @@ class UserService {
 
   async updateCurrentFile(file_id, title, comment) {
     const response = await instance
-      .patch(API_URL + `backend/api/v1/filelist/detail/${file_id}/`, 
+      .patch(API_URL + `api/v1/filelist/detail/${file_id}/`, 
       {
         title,
         comment
@@ -91,7 +91,7 @@ class UserService {
 
   async generateURL(file_id) {
     const response = await instance
-      .put(API_URL + `backend/api/v1/filelist/detail/${file_id}/`,
+      .put(API_URL + `api/v1/filelist/detail/${file_id}/`,
       { 
         headers: authHeader() 
       });

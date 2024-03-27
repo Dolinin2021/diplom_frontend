@@ -6,7 +6,7 @@ import { API_URL } from '../common/system-var';
 class AuthService {
   async register(username, email, password) {
     const response = await axios
-      .post(API_URL + 'backend/useradd/', {
+      .post(API_URL + 'useradd/', {
         username,
         email,
         password
@@ -16,7 +16,7 @@ class AuthService {
 
   async login(username, password) {
     const response = await axios
-      .post(API_URL + 'backend/api/v1/token/', {
+      .post(API_URL + 'api/v1/token/', {
         username,
         password
       });
@@ -29,7 +29,7 @@ class AuthService {
 
   async updateAccessToken(refresh) {
     const response = await axios
-      .post(API_URL + 'backend/api/v1/token/refresh/', {
+      .post(API_URL + 'api/v1/token/refresh/', {
         refresh
       });
     if (response.data) {
