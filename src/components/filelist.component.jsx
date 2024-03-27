@@ -47,66 +47,42 @@ export default function FileList() {
     }
   },[]);
 
-  // if (adminUserId) {
-  //   useEffect(() => {
-  //     UserService.getFileListCurrentUser(adminUserId).then((data) => {
-  //       setInfo(data);
-  //     }).catch((error) => {
-  //       console.log(error.message);
-  //     })
-  //   }, []);
-  // } else {
-  //   useEffect(() => {
-  //     UserService.getFileList().then((data) => {
-  //       setInfo(data);
-  //     }).catch((error) => {
-  //       console.log(error.message);
-  //     })
-  //   }, []);
-  // }
-
   return (
-    <div className='container'>
-      <div className="tbl-header">
-        <h3>
-          <strong>Файловое хранилище</strong>
-        </h3>
-        <table>
-          <thead className='jumbotron'>
-            <tr>
-              <th>Имя файла</th>
-              <th>Размер</th>
-              <th>Общая ссылка</th>
-              <th>Комментарий</th>
-              <th>Дата создания</th>
-              <th>Редактировать</th>
-              <th>Удалить</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div className="tbl-content">
-        <table>
-          <tbody>
+    <div className='table-wrap'>
+      <h3>
+        <strong>Файловое хранилище</strong>
+      </h3>
+      <table>
+        <thead className='jumbotron'>
+          <tr>
+            <th>Имя файла</th>
+            <th>Размер</th>
+            <th>Общая ссылка</th>
+            <th>Комментарий</th>
+            <th>Дата создания</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
+          </tr>
+        </thead>
+        <tbody>
           {info.map((item) => 
             <tr key={item.id}>
-              <td><span className="list-group-item">{item.title}</span></td>
-              <td><span className="list-group-item" >{bytesToSize(item.file_size)}</span></td>
-              <td><span className="list-group-item" ><a href={parseStr(item.file)}>{parseStr(item.file)}</a></span></td>
-              <td><span className="list-group-item" >{item.comment}</span></td>
-              <td><span className="list-group-item" >{item.date}</span></td>
-              <td><span className="list-group-item" >{<NavLink to={'/file/detail' + `/${item.id}`}> Перейти</NavLink>}</span></td>
-              <td><span className="list-group-item" >{<button type="button" onClick={(event) => {handleDeleteClick(event, item.id)}}>Удалить</button>}</span></td>
+              <td data-label="Имя файла"><span className="list-group-item">{item.title}</span></td>
+              <td data-label="Размер"><span className="list-group-item" >{bytesToSize(item.file_size)}</span></td>
+              <td data-label="Общая ссылка"><span className="list-group-item" ><a href={parseStr(item.file)}>{parseStr(item.file)}</a></span></td>
+              <td data-label="Комментарий"><span className="list-group-item" >{item.comment}</span></td>
+              <td data-label="Дата создания"><span className="list-group-item" >{item.date}</span></td>
+              <td data-label="Редактировать"><span className="list-group-item" >{<NavLink to={'/file/detail' + `/${item.id}`}> Перейти</NavLink>}</span></td>
+              <td data-label="Удалить"><span className="list-group-item" >{<button type="button" onClick={(event) => {handleDeleteClick(event, item.id)}}>Удалить</button>}</span></td>
             </tr>)}
-          </tbody>
+        </tbody>
         </table>
-      </div>
-      <div>
-        <button type="button" onClick={buttonClick} style={{marginTop: '20px'}}>Назад</button>
-        {(adminUserId) ? 
-        <button type="button" onClick={onCLickAdmin} style={{marginLeft: '30px'}}>Добавить новый файл</button>
-        : <button type="button" onClick={onCLick} style={{marginLeft: '30px'}}>Добавить новый файл</button>}
-      </div>
+        <div>
+          <button type="button" onClick={buttonClick} style={{marginTop: '20px'}}>Назад</button>
+          {(adminUserId) ? 
+          <button type="button" onClick={onCLickAdmin} style={{marginLeft: '30px'}}>Добавить новый файл</button>
+          : <button type="button" onClick={onCLick} style={{marginLeft: '30px'}}>Добавить новый файл</button>}
+        </div>
     </div>
   );
 }
